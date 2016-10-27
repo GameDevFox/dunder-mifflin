@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/product")
 public class ProductController {
 
-    private @Autowired TargetRestService targetRestService;
+    @Autowired
+    private TargetRestService targetRestService;
 
     @RequestMapping(value = "/{tcin}", method = RequestMethod.GET)
     public Product getProduct(@PathVariable String tcin) {

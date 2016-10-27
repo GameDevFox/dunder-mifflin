@@ -1,4 +1,4 @@
-package dundermifflin;
+package dundermifflin.controller;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

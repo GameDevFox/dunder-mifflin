@@ -1,0 +1,186 @@
+{
+  product_composite_response: {
+    request_attributes: [
+      {
+        name: "product_id",
+        value: "13860429"
+      },
+      {
+        name: "key",
+        value: "43cJWpLjH8Z8oR18KdrZDBKAgLLQKJjz"
+      },
+      {
+        name: "id_type",
+        value: "TCIN"
+      },
+      {
+        name: "fields",
+        value: "descriptions,pricing,images"
+      }
+    ],
+    items: [
+      {
+        identifier: [
+          {
+            id_type: "DPCI",
+            id: "058-10-3553",
+            is_primary: null,
+            source: "Online and Store"
+          },
+          {
+            id_type: "TCIN",
+            id: "13860429",
+            is_primary: null,
+            source: "Online"
+          }
+        ],
+        relation: "SA",
+        relation_description: "Stand Alone",
+        data_page_link: "http://www.target.com/p/spongebob-squarepants-s-frozen-face-off/-/A-13860429",
+        imn_identifier: 10996727,
+        is_orderable: true,
+        is_sellable: true,
+        general_description: "Dvd Video SPONGEBOB SQUAREPANTS: SPONGEBOB FROZEN FACE-OFF Movies",
+        is_circular_publish: true,
+        business_process_status: [
+          {
+            process_status: {
+              is_ready: true,
+              operation_description: "assortment ready",
+              operation_code: "PAAP"
+            }
+          },
+          {
+            process_status: {
+              is_ready: false,
+              operation_description: "import ready",
+              operation_code: "PIPT"
+            }
+          },
+          {
+            process_status: {
+              is_ready: true,
+              operation_description: "order ready",
+              operation_code: "PORD"
+            }
+          },
+          {
+            process_status: {
+              is_ready: true,
+              operation_description: "presentation ready",
+              operation_code: "PPRS"
+            }
+          },
+          {
+            process_status: {
+              is_ready: true,
+              operation_description: "project ready",
+              operation_code: "PCMT"
+            }
+          },
+          {
+            process_status: {
+              is_ready: true,
+              operation_description: "replenishment ready",
+              operation_code: "PRPL"
+            }
+          },
+          {
+            process_status: {
+              is_ready: false,
+              operation_description: "scale ready",
+              operation_code: "PSCL"
+            }
+          },
+          {
+            process_status: {
+              is_ready: true,
+              operation_description: "target.com ready",
+              operation_code: "PTGT"
+            }
+          }
+        ],
+        dpci: "058-10-3553",
+        department_id: 58,
+        class_id: 10,
+        item_id: 3553,
+        online_description: {
+          value: "SpongeBob SquarePants: SpongeBob's Frozen Face-off",
+          type: "GENL"
+        },
+        store_description: {
+          value: "Dvd Video SPONGEBOB SQUAREPANTS: SPONGEBOB FROZEN FACE-OFF Movies",
+          type: "GENL"
+        },
+        alternate_description: [
+          {
+            type: "SHLF",
+            value: "SPONGEBOB SQUAREPANTS:",
+            type_description: "Shelf Desc"
+          },
+          {
+            type: "POS",
+            value: "DVD VIDEO",
+            type_description: "POS Desc"
+          },
+          {
+            type: "GENL",
+            value: "Dvd Video SPONGEBOB SQUAREPANTS: SPONGEBOB FROZEN FACE-OFF Movies",
+            type_description: "General Desc"
+          },
+          {
+            type: "ADSG",
+            value: "SpongeBob SquarePants:</SpongeBob's Frozen Face-Off",
+            type_description: "Ad Signage Description"
+          }
+        ],
+        features: [
+          {
+            feature: "Movie Genre: Kids and Family"
+          },
+          {
+            feature: "Movie Category: Television"
+          },
+          {
+            feature: "Movie Studio: Nickelodeon"
+          },
+          {
+            feature: "Movie MPAA Rating: nr"
+          }
+        ],
+        online_price: {
+          display_price: "7.50",
+          current_price: "7.50",
+          current_price_min: null,
+          current_price_max: null,
+          original_price: "7.50",
+          map_price: null,
+          list_price: "12.98",
+          list_price_min: null,
+          list_price_max: null,
+          price_code: 0,
+          price_code_description: "Regular retail"
+        },
+        is_store_only_product_price_display: false,
+        image: {
+          internal_primary_image_url: [
+            "http://target.scene7.com/is/image/Target/13860429?wid=410&hei=410"
+          ],
+          internal_alt_image_url: [
+            "http://target.scene7.com/is/image/Target/13860429?wid=410&hei=410"
+          ],
+          internal_thumbnail_image_url: null,
+          internal_swatch_image_url: [
+            "http://target.scene7.com/is/image/Target?layer=0&size=40,40&layer=1&src=13860429"
+          ],
+          external_primary_image_url: [
+            "http://target.scene7.com/is/image/Target/13860429?wid=410&hei=410"
+          ],
+          external_alt_image_url: [
+            "http://target.scene7.com/is/image/Target/13860429?wid=410&hei=410"
+          ]
+        }
+      }
+    ]
+  }
+}

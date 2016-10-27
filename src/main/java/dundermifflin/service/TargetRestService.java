@@ -11,7 +11,8 @@ import java.util.Map;
 @Service
 public class TargetRestService {
 
-    private @Autowired String targetSecurityKey;
+    @Autowired
+    private TargetRestUrlBuilder targetRestUrlBuilder;
 
     public Product getProduct(String tcin) {
         Map item = getItem(tcin);
@@ -22,25 +23,13 @@ public class TargetRestService {
     }
 
     public Map getItem(String tcin) {
-        String url = buildUrl(tcin);
+        String url = targetRestUrlBuilder.buildUrl(tcin);
 
         RestTemplate restTemplate = new RestTemplate();
         Map response = restTemplate.getForObject(url, Map.class);
 
         Map item = buildItem(response);
         return item;
-    }
-
-    private String buildUrl(String tcin) {
-        return buildUrl(tcin, "descriptions,pricing,images");
-    }
-
-    private String buildUrl(String tcin, String fields) {
-        String result = "https://api.target.com/products/v3/" + tcin +
-                "?fields=" + fields +
-                "&id_type=TCIN" +
-                "&key="+targetSecurityKey;
-        return result;
     }
 
     private Map buildItem(Map map) {
