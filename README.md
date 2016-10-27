@@ -6,3 +6,9 @@ A RESTfil API for the new Dunder Mifflin Infinity website
 ```
 $ ./gradlew bootRun
 ```
+
+## Testing
+
+```
+$ ./gradlew check
+```
