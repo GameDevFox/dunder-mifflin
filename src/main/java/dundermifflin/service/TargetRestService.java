@@ -1,0 +1,92 @@
+package dundermifflin.service;
+
+import dundermifflin.bean.Product;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
+import java.util.Map;
+
+@Service
+public class TargetRestService {
+
+    private @Autowired String targetSecurityKey;
+
+    public Product getProduct(String tcin) {
+        Map item = getItem(tcin);
+
+        Product product = buildProduct(item);
+        product.setId(tcin);
+        return product;
+    }
+
+    public Map getItem(String tcin) {
+        String url = buildUrl(tcin);
+
+        RestTemplate restTemplate = new RestTemplate();
+        Map response = restTemplate.getForObject(url, Map.class);
+
+        Map item = buildItem(response);
+        return item;
+    }
+
+    private String buildUrl(String tcin) {
+        return buildUrl(tcin, "descriptions,pricing,images");
+    }
+
+    private String buildUrl(String tcin, String fields) {
+        String result = "https://api.target.com/products/v3/" + tcin +
+                "?fields=" + fields +
+                "&id_type=TCIN" +
+                "&key="+targetSecurityKey;
+        return result;
+    }
+
+    private Map buildItem(Map map) {
+        Map productCompositeResponse = (Map) map.get("product_composite_response");
+        List items = (List) productCompositeResponse.get("items");
+
+        Map item;
+        if(items.size() > 0)
+            item = (Map) items.get(0);
+        else
+            item = null;
+
+        return item;
+    }
+
+    private Product buildProduct(Map item) {
+        Map onlineDescription = (Map) item.get("online_description");
+        String value = (String) onlineDescription.get("value");
+
+        Map onlinePrice = (Map) item.get("online_price");
+        String priceStr = (String) onlinePrice.get("current_price");
+        float price = Float.valueOf(priceStr);
+
+        String dataPageLink = (String) item.get("data_page_link");
+
+        String imageUrl = null;
+        Map images = (Map) item.get("image");
+        List externalImageUrlList = (List) images.get("external_primary_image_url");
+        if(externalImageUrlList.size() > 0)
+            imageUrl = (String) externalImageUrlList.get(0);
+
+        Product product = new Product();
+        product.setName(value);
+        product.setPrice(price);
+        product.setPageUrl(dataPageLink);
+        product.setImageUrl(imageUrl);
+
+        return product;
+    }
+}
+
+// NOTES: fields =
+// extended_core,ids,descriptions,pos_messages,product_hierarchies,geographic_compliance,recall,dimensions,brand,
+// relations,entertainment,restrictions,locations,pricing,in_store_locations,images,variations,reviews,user_attributes,
+// color,size,pattern,license_asset,internal_images,vendor,nutrients,flexible_fulfillment,environmental,pharmacy,
+// limited_segment,prepaid,store_product_type_hierarchy,store_merch_hierarchy,online_product_type_hierarchy,
+// webclass_hierarchy,iac_categories,subscription,online_back_order,online_pre_order,purchase_enticement,fulfillment,
+// manufacturer,extended_descriptions,all_fields_group,item_hierarchies,no_business_process_status,return_policy,
+// no_online_inventory
