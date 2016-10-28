@@ -34,8 +34,9 @@ dependencies {
     // tag::actuator[]
     compile("org.springframework.boot:spring-boot-starter-actuator")
     // end::actuator[]
+    compile("org.springframework.data:spring-data-mongodb:1.9.4.RELEASE")
+
     testCompile("junit:junit")
     testCompile("org.springframework.boot:spring-boot-starter-test")
-
     testCompile("commons-io:commons-io:2.4")
 }

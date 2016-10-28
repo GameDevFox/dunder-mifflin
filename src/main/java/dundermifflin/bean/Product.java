@@ -1,12 +1,15 @@
 package dundermifflin.bean;
 
+
+import org.springframework.data.annotation.Id;
+
 public class Product {
 
+    @Id
     private String id;
-    private String name;
+
     private float price;
-    private String pageUrl;
-    private String imageUrl;
+    private float rating;
 
     public String getId() {
         return id;
@@ -14,14 +17,6 @@ public class Product {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public float getPrice() {
@@ -32,19 +27,11 @@ public class Product {
         this.price = price;
     }
 
-    public String getPageUrl() {
-        return pageUrl;
+    public float getRating() {
+        return rating;
     }
 
-    public void setPageUrl(String pageUrl) {
-        this.pageUrl = pageUrl;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setRating(float rating) {
+        this.rating = rating;
     }
 }

@@ -1,6 +1,6 @@
 package dundermifflin.service;
 
-import dundermifflin.bean.Product;
+import dundermifflin.bean.TargetProduct;
 import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -44,13 +44,13 @@ public class TargetRestServiceTest {
             .andExpect(method(HttpMethod.GET))
             .andRespond(withSuccess(response, MediaType.APPLICATION_JSON));
 
-        Product product = targetRestService.getProduct("13860429");
+        TargetProduct targetProduct = targetRestService.getTargetProduct("13860429");
 
-        assertThat(product.getId()).isEqualTo("13860429");
-        assertThat(product.getName()).isEqualTo("SpongeBob SquarePants: SpongeBob's Frozen Face-off");
-        assertThat(product.getPrice()).isEqualTo(7.5f);
-        assertThat(product.getPageUrl()).isEqualTo("http://www.target.com/p/spongebob-squarepants-s-frozen-face-off/-/A-13860429");
-        assertThat(product.getImageUrl()).isEqualTo("http://target.scene7.com/is/image/Target/13860429?wid=410&hei=410");
+        assertThat(targetProduct.getId()).isEqualTo("13860429");
+        assertThat(targetProduct.getName()).isEqualTo("SpongeBob SquarePants: SpongeBob's Frozen Face-off");
+        assertThat(targetProduct.getPrice()).isEqualTo(7.5f);
+        assertThat(targetProduct.getPageUrl()).isEqualTo("http://www.target.com/p/spongebob-squarepants-s-frozen-face-off/-/A-13860429");
+        assertThat(targetProduct.getImageUrl()).isEqualTo("http://target.scene7.com/is/image/Target/13860429?wid=410&hei=410");
     }
 
     private String getResponse() throws IOException {

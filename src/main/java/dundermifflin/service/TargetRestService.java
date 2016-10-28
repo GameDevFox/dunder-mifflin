@@ -1,6 +1,6 @@
 package dundermifflin.service;
 
-import dundermifflin.bean.Product;
+import dundermifflin.bean.TargetProduct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -14,12 +14,12 @@ public class TargetRestService {
     @Autowired
     private TargetRestUrlBuilder targetRestUrlBuilder;
 
-    public Product getProduct(String tcin) {
+    public TargetProduct getTargetProduct(String tcin) {
         Map item = getItem(tcin);
 
-        Product product = buildProduct(item);
-        product.setId(tcin);
-        return product;
+        TargetProduct targetProduct = buildProduct(item);
+        targetProduct.setId(tcin);
+        return targetProduct;
     }
 
     public Map getItem(String tcin) {
@@ -45,7 +45,7 @@ public class TargetRestService {
         return item;
     }
 
-    private Product buildProduct(Map item) {
+    private TargetProduct buildProduct(Map item) {
         Map onlineDescription = (Map) item.get("online_description");
         String value = (String) onlineDescription.get("value");
 
@@ -61,13 +61,13 @@ public class TargetRestService {
         if(externalImageUrlList.size() > 0)
             imageUrl = (String) externalImageUrlList.get(0);
 
-        Product product = new Product();
-        product.setName(value);
-        product.setPrice(price);
-        product.setPageUrl(dataPageLink);
-        product.setImageUrl(imageUrl);
+        TargetProduct targetProduct = new TargetProduct();
+        targetProduct.setName(value);
+        targetProduct.setPrice(price);
+        targetProduct.setPageUrl(dataPageLink);
+        targetProduct.setImageUrl(imageUrl);
 
-        return product;
+        return targetProduct;
     }
 }
 
