@@ -1,4 +1,4 @@
-# dunder-mifflin [![Build Status](https://travis-ci.com/GameDevFox/dunder-mifflin.svg?token=GrEbYizRxzQSDyn2Sx6B&branch=master)](https://travis-ci.com/GameDevFox/dunder-mifflin)
+# dunder-mifflin [![Build Status](https://travis-ci.org/GameDevFox/dunder-mifflin.svg?branch=master)](https://travis-ci.org/GameDevFox/dunder-mifflin)
 A RESTful API for the new Dunder Mifflin Infinity website
 
 ## Running
