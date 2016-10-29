@@ -1,7 +1,7 @@
 package dundermifflin.controller;
 
-import dundermifflin.bean.Product;
-import dundermifflin.service.ProductService;
+import dundermifflin.bean.LocalProduct;
+import dundermifflin.service.LocalProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,23 +10,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/product")
-public class ProductController {
+@RequestMapping("/local-product")
+public class LocalProductController {
 
-    private @Autowired ProductService productService;
+    private @Autowired
+    LocalProductService localProductService;
 
     @RequestMapping(value = "/{tcin}", method = RequestMethod.GET)
-    public Product get(@PathVariable String tcin) {
-        return productService.get(tcin);
+    public LocalProduct get(@PathVariable String tcin) {
+        return localProductService.get(tcin);
     }
 
     @RequestMapping(value = "/", method = { RequestMethod.POST, RequestMethod.PUT })
-    public void put(@RequestBody Product product) {
-        productService.save(product);
+    public void put(@RequestBody LocalProduct localProduct) {
+        localProductService.save(localProduct);
     }
 
     @RequestMapping(value = "/{tcin}", method = RequestMethod.DELETE)
     public void delete(@PathVariable String tcin) {
-        productService.remove(tcin);
+        localProductService.remove(tcin);
     }
 }

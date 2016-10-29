@@ -1,7 +1,7 @@
 package dundermifflin.repo;
 
 
-import dundermifflin.bean.Product;
+import dundermifflin.bean.LocalProduct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;
@@ -11,15 +11,15 @@ public class ProductRepository {
 
     private @Autowired MongoTemplate mongoTemplate;
 
-    public void save(Product product) {
-        mongoTemplate.save(product);
+    public void save(LocalProduct localProduct) {
+        mongoTemplate.save(localProduct);
     }
 
-    public Product get(String id) {
-        return mongoTemplate.findById(id, Product.class);
+    public LocalProduct get(String id) {
+        return mongoTemplate.findById(id, LocalProduct.class);
     }
 
-    public void remove(Product product) {
-        mongoTemplate.remove(product);
+    public void remove(LocalProduct localProduct) {
+        mongoTemplate.remove(localProduct);
     }
 }
