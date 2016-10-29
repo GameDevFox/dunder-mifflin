@@ -10,8 +10,20 @@ public class ProductService {
 
     private @Autowired ProductRepository productRepository;
 
-    public Product getProduct(String id) {
-        Product product = productRepository.findOne(id);
-        return product;
+    public void save(Product product) {
+        productRepository.save(product);
+    }
+
+    public Product get(String id) {
+        return productRepository.get(id);
+    }
+
+    public void remove(Product product) {
+        productRepository.remove(product);
+    }
+
+    public void remove(String id) {
+        Product product = productRepository.get(id);
+        productRepository.remove(product);
     }
 }
