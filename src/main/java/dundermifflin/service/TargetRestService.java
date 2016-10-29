@@ -1,6 +1,7 @@
 package dundermifflin.service;
 
 import dundermifflin.bean.TargetProduct;
+import dundermifflin.exception.DunderMifflinRuntimeException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -29,6 +30,15 @@ public class TargetRestService {
         Map response = restTemplate.getForObject(url, Map.class);
 
         Map item = buildItem(response);
+
+        Object errors = item.get("errors");
+        if(errors != null) {
+            List errorList = (List) errors;
+            Map errorItem = (Map) errorList.get(0);
+            String message = (String) errorItem.get("message");
+            throw new DunderMifflinRuntimeException("Target API returned error: " + message);
+        }
+
         return item;
     }
 
