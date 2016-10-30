@@ -8,6 +8,7 @@ import dundermifflin.service.LocalProductService;
 import dundermifflin.service.TargetProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,5 +33,13 @@ public class ProductController {
         if(targetProduct != null || localProduct != null)
             product = new Product(targetProduct, localProduct);
         return product;
+    }
+
+    @RequestMapping(value = "/{tcin}", method = RequestMethod.PUT)
+    public void put(@PathVariable String tcin, @RequestBody Product product) {
+        LocalProduct localProduct = product.getLocalProduct();
+        localProduct.setId(tcin);
+
+        localProductService.save(localProduct);
     }
 }

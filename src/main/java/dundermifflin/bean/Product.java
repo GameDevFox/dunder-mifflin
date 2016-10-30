@@ -28,6 +28,17 @@ public class Product extends TargetProduct {
         this.rating = rating;
     }
 
+    public TargetProduct getTargetProduct() {
+        TargetProduct targetProduct = new TargetProduct();
+        targetProduct.setId(getId());
+        targetProduct.setName(getName());
+        targetProduct.setPrice(getPrice());
+        targetProduct.setPageUrl(getPageUrl());
+        targetProduct.setImageUrl(getImageUrl());
+
+        return targetProduct;
+    }
+
     public void setTargetProduct(TargetProduct targetProduct) {
         if(targetProduct == null)
             return;
@@ -37,6 +48,15 @@ public class Product extends TargetProduct {
         setBasePrice(targetProduct.getPrice());
         setPageUrl(targetProduct.getPageUrl());
         setImageUrl(targetProduct.getImageUrl());
+    }
+
+    public LocalProduct getLocalProduct() {
+        LocalProduct localProduct = new LocalProduct();
+        localProduct.setId(getId());
+        localProduct.setPrice(getPrice());
+        localProduct.setRating(getRating());
+
+        return localProduct;
     }
 
     public void setLocalProduct(LocalProduct localProduct) {
