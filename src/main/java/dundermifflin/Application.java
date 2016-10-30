@@ -13,14 +13,21 @@ public class Application {
 
     @Value("${target.securityKey}")
     private String targetSecurityKey;
+    @Value("${database.host}")
+    private String databaseHost;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class);
     }
 
     @Bean
-    public String getTargetSecurityKey() {
+    public String targetSecurityKey() {
         return targetSecurityKey;
+    }
+
+    @Bean
+    public String databaseHost() {
+        return databaseHost;
     }
 
     @Bean
