@@ -1,6 +1,5 @@
 package dundermifflin.bean;
 
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -10,8 +9,8 @@ public class LocalProduct {
     @Id
     private String id;
 
-    private float price;
-    private float rating;
+    private Float price;
+    private Float rating;
 
     public String getId() {
         return id;
@@ -21,19 +20,19 @@ public class LocalProduct {
         this.id = id;
     }
 
-    public float getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 
-    public float getRating() {
+    public Float getRating() {
         return rating;
     }
 
-    public void setRating(float rating) {
+    public void setRating(Float rating) {
         this.rating = rating;
     }
 }

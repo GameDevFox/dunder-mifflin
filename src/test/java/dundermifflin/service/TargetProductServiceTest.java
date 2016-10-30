@@ -25,13 +25,14 @@ import static org.springframework.test.web.client.response.MockRestResponseCreat
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TargetRestServiceTest {
+public class TargetProductServiceTest {
 
     @Value("classpath:target-response-13860429.json")
     private Resource responseFile;
 
     private @Autowired TargetRestUrlBuilder targetRestUrlBuilder;
-    private @Autowired TargetRestService targetRestService;
+    private @Autowired
+    TargetProductService targetProductService;
 
     @Test
     public void getProduct() throws IOException {
@@ -44,7 +45,7 @@ public class TargetRestServiceTest {
             .andExpect(method(HttpMethod.GET))
             .andRespond(withSuccess(response, MediaType.APPLICATION_JSON));
 
-        TargetProduct targetProduct = targetRestService.getTargetProduct("13860429");
+        TargetProduct targetProduct = targetProductService.getTargetProduct("13860429");
 
         assertThat(targetProduct.getId()).isEqualTo("13860429");
         assertThat(targetProduct.getName()).isEqualTo("SpongeBob SquarePants: SpongeBob's Frozen Face-off");

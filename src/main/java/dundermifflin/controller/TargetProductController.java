@@ -1,7 +1,7 @@
 package dundermifflin.controller;
 
 import dundermifflin.bean.TargetProduct;
-import dundermifflin.service.TargetRestService;
+import dundermifflin.service.TargetProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class TargetProductController {
 
     @Autowired
-    private TargetRestService targetRestService;
+    private TargetProductService targetProductService;
 
     @RequestMapping(value = "/{tcin}", method = RequestMethod.GET)
     public TargetProduct getProduct(@PathVariable String tcin) {
-        return targetRestService.getTargetProduct(tcin);
+        return targetProductService.getTargetProduct(tcin);
     }
 }

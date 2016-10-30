@@ -4,7 +4,7 @@ public class TargetProduct {
 
     private String id;
     private String name;
-    private float price;
+    private Float price;
     private String pageUrl;
     private String imageUrl;
 
@@ -24,11 +24,11 @@ public class TargetProduct {
         this.name = name;
     }
 
-    public float getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 

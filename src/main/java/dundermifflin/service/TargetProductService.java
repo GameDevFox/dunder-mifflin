@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class TargetRestService {
+public class TargetProductService {
 
     @Autowired
     private TargetRestUrlBuilder targetRestUrlBuilder;
