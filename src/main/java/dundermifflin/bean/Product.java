@@ -1,5 +1,7 @@
 package dundermifflin.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Product extends TargetProduct {
 
     private Float basePrice;
@@ -28,6 +30,7 @@ public class Product extends TargetProduct {
         this.rating = rating;
     }
 
+    @JsonIgnore
     public TargetProduct getTargetProduct() {
         TargetProduct targetProduct = new TargetProduct();
         targetProduct.setId(getId());
@@ -50,6 +53,7 @@ public class Product extends TargetProduct {
         setImageUrl(targetProduct.getImageUrl());
     }
 
+    @JsonIgnore
     public LocalProduct getLocalProduct() {
         LocalProduct localProduct = new LocalProduct();
         localProduct.setId(getId());
