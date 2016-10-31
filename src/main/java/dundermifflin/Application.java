@@ -1,5 +1,6 @@
 package dundermifflin;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,23 +12,25 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @SpringBootApplication
 public class Application {
 
+    @Value("${target.baseUrl}")
+    private String targetBaseUrl;
     @Value("${target.securityKey}")
     private String targetSecurityKey;
-    @Value("${database.host}")
-    private String databaseHost;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class);
     }
 
     @Bean
-    public String targetSecurityKey() {
-        return targetSecurityKey;
+    @Qualifier("targetBaseUrl")
+    public String getTargetBaseUrl() {
+        return targetBaseUrl;
     }
 
     @Bean
-    public String databaseHost() {
-        return databaseHost;
+    @Qualifier("targetSecurityKey")
+    public String targetSecurityKey() {
+        return targetSecurityKey;
     }
 
     @Bean

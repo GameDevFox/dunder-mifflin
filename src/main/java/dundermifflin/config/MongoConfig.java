@@ -2,7 +2,7 @@ package dundermifflin.config;
 
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
@@ -11,7 +11,8 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableMongoRepositories
 public class MongoConfig extends AbstractMongoConfiguration {
 
-    private @Autowired String databaseHost;
+    @Value("${database.host}")
+    private String databaseHost;
 
     @Override
     protected String getDatabaseName() {
