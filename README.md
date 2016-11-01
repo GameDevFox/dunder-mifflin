@@ -12,3 +12,8 @@ $ ./gradlew bootRun
 ```
 $ ./gradlew check
 ```
+
+## Demo Site
+[http://dunder-mifflin.everempire.com/api/product/13860428](http://dunder-mifflin.everempire.com/api/product/13860428)
+
+(Supports GET and PUT requests)
