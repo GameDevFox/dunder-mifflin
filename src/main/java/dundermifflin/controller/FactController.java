@@ -14,7 +14,7 @@ public class FactController {
         "Battlestar Galactica"
     };
 
-    @RequestMapping("/")
+    @RequestMapping
     public String[] getFacts() {
         return facts;
     }

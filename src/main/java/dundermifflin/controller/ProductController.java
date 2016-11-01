@@ -17,8 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/product")
 public class ProductController {
 
-    private @Autowired TargetProductService targetProductService;
-    private @Autowired LocalProductService localProductService;
+    private TargetProductService targetProductService;
+    private LocalProductService localProductService;
+
+    @Autowired
+    public ProductController(TargetProductService targetProductService, LocalProductService localProductService) {
+        this.targetProductService = targetProductService;
+        this.localProductService = localProductService;
+    }
 
     @RequestMapping(value = "/{tcin}", method = RequestMethod.GET)
     public Product get(@PathVariable String tcin) {

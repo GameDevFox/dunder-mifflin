@@ -21,8 +21,14 @@ public class LocalProductController {
         return localProductService.get(tcin);
     }
 
-    @RequestMapping(value = "/", method = { RequestMethod.POST, RequestMethod.PUT })
-    public void put(@RequestBody LocalProduct localProduct) {
+    @RequestMapping(method = RequestMethod.POST)
+    public void post(@RequestBody LocalProduct localProduct) {
+        localProductService.save(localProduct);
+    }
+
+    @RequestMapping(value = "/{tcin}", method = RequestMethod.PUT)
+    public void put(@PathVariable String tcin, @RequestBody LocalProduct localProduct) {
+        localProduct.setId(tcin);
         localProductService.save(localProduct);
     }
 
